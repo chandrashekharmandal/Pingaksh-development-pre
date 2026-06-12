@@ -1,0 +1,61 @@
+{
+  "expo": {
+    "name": "bSecure",
+    "slug": "bsecure-user",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "bsecure",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#1E1E2E"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.bsecure.user",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "We need your location to find nearby guards.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "We need your location to track your booking in the background.",
+        "UIBackgroundModes": ["location", "fetch", "remote-notification"]
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#1E1E2E"
+      },
+      "package": "com.bsecure.user",
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_BACKGROUND_LOCATION"
+      ]
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow bSecure to use your location to find nearby guards and track active bookings.",
+          "locationAlwaysPermission": "Allow bSecure to use your location in the background for active booking tracking.",
+          "locationWhenInUsePermission": "Allow bSecure to use your location to find nearby guards.",
+          "isAndroidBackgroundLocationEnabled": true,
+          "isAndroidForegroundServiceEnabled": true
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/notification-icon.png",
+          "color": "#6C63FF"
+        }
+      ],
+      "expo-secure-store"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

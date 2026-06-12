@@ -1,0 +1,10 @@
+-r base.txt
+
+# Production WSGI/ASGI server (Daphne is in base; gunicorn as fallback)
+gunicorn==22.0.0
+
+# Error tracking
+sentry-sdk==2.4.0
+
+# Security
+django-csp==3.8

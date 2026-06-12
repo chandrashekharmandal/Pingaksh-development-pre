@@ -1,0 +1,76 @@
+{
+  "expo": {
+    "name": "bSecure Guard",
+    "slug": "bsecure-guard",
+    "version": "1.0.0",
+    "scheme": "bsecureguard",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#1E1E2E"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.bsecure.guard",
+      "infoPlist": {
+        "UIBackgroundModes": ["location", "fetch"],
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "We need your location to show clients your position during active bookings.",
+        "NSLocationWhenInUseUsageDescription": "We need your location to match you with nearby clients.",
+        "NSLocationAlwaysUsageDescription": "Background location is needed to track your position during active bookings."
+      }
+    },
+    "android": {
+      "package": "com.bsecure.guard",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#1E1E2E"
+      },
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_BACKGROUND_LOCATION",
+        "FOREGROUND_SERVICE",
+        "FOREGROUND_SERVICE_LOCATION"
+      ],
+      "foregroundService": {
+        "type": "location",
+        "notificationTitle": "bSecure Guard Active",
+        "notificationBody": "Tracking your location for active booking"
+      }
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow bSecure Guard to use your location to track position during active bookings.",
+          "locationAlwaysPermission": "Allow bSecure Guard to use your location in the background during active bookings.",
+          "locationWhenInUsePermission": "Allow bSecure Guard to use your location to match you with nearby clients.",
+          "isIosBackgroundLocationEnabled": true,
+          "isAndroidBackgroundLocationEnabled": true,
+          "isAndroidForegroundServiceEnabled": true
+        }
+      ],
+      "expo-task-manager",
+      [
+        "expo-notifications",
+        {
+          "sounds": ["./assets/sounds/alert.wav"]
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow bSecure Guard to access your photos for document uploads."
+        }
+      ],
+      "expo-secure-store"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
